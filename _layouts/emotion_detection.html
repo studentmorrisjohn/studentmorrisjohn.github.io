@@ -1,0 +1,55 @@
+---
+layout: default
+---
+<!-- page.html -->
+<div class="post">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header> -->
+
+  <article>
+    {{ content }}
+
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="predictImage()">Predict</button>
+    <div id="predictionResult"></div>
+
+    <script>
+        function predictImage() {
+            const input = document.getElementById('imageInput');
+            const predictionResult = document.getElementById('predictionResult');
+
+            predictionResult.innerHTML = 'Sending the Image to server. Waiting for a response ......';
+
+            if (input.files.length > 0) {
+                const file = input.files[0];
+                const formData = new FormData();
+                formData.append('file', file); // Use 'file' as the key
+
+                fetch('https://studentmorrisjohn.pythonanywhere.com/process_image', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.error) {
+                      predictionResult.innerHTML = `Something went wrong! Try a different picture.`;
+                      return;
+                    }
+                    predictionResult.innerHTML = `Prediction: ${data.result}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    predictionResult.innerHTML = 'Error predicting the image.';
+                });
+            } else {
+                predictionResult.innerHTML = 'Please select an image.';
+            }
+        }
+    </script>
+
+  </article>
+</div>
