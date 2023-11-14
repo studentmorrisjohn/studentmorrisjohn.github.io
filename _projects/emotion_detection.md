@@ -1,7 +1,7 @@
 ---
 layout: emotion_detection
-title: Emotion Detection
-description: i created a simple machine learning mode for emotion detection using tensorflow and deployed it using flask
+title: Training and Deploying a Machine Learning Model using TensorFlow and Flask
+description: i created a simple machine learning model for emotion detection with tensorflow and deployed it using flask
 img: assets/img/happy.jpg
 importance: 2
 category: personal
