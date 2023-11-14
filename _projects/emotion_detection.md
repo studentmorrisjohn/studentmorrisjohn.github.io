@@ -1,21 +1,23 @@
 ---
 layout: emotion_detection
 title: Emotion Detection
-description: a project for my application for DOST
-img: assets/img/3.jpg
+description: i created a simple machine learning mode for emotion detection using tensorflow and deployed it using flask
+img: assets/img/happy.jpg
 importance: 2
 category: personal
 ---
 
+# Training and Deploying a Machine Learning Model using TensorFlow and Flask
 
 I created a simple tool that takes in a picture of a person as an input then tries to predict the facial expression that person is showing. I used Google Colab to train the model and deployed it to a simple flask app with the help of pythonanywhere. 
 
 The model was not very accurate when I tested it using different pictures of myself. Improving the dataset and playing around with the neural network can improve the accuracy of the model. This project focused more on learning how to execute the whole machine learning workflow. Starting from training a machine learning model to deploying it as an API. 
 
-(picture)
+{% include figure.html path="assets/img/demo.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
+
 ### Code and Demo
 
-The code for the training and deployment can be found at this  [github repository](https://github.com/studentmorrisjohn/emotion_detection). A simple demo of the tool can be found at the bottom of this page.
+The code for the training and deployment can be found at this  [github repository](https://github.com/studentmorrisjohn/emotion_detection). A simple [demo](#demo) of the tool can be found at the bottom of this page.
 
 ### Data Set
 
@@ -25,7 +27,7 @@ I've used a Convolutional Neural Network, or CNN,  to recognize seven types of e
 
 I trained the model on V100 GPU on Google Colab Pro using keras and served the resulting model as an API by creating a simple Flask APP deployed on pythonanywhere. 
 
-(picture)
+{% include figure.html path="assets/img/pipeline.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
 
 ### Training on Google Colab Pro
 
